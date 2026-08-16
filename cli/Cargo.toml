@@ -1,0 +1,9 @@
+[package]
+name = "excalibur-ctl"
+version = "2.0.0"
+edition = "2021"
+authors = ["Solzic0 <solzic0@yandex.com>"]
+description = "Command-line control utility for Casper Excalibur laptops"
+license = "GPL-3.0-or-later"
+
+[dependencies]

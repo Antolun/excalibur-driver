@@ -1,0 +1,12 @@
+service {
+    type "local"
+    description {
+        en "Casper Excalibur Hardware Driver & Control Service"
+        tr "Casper Excalibur Donanım Sürücüsü ve Kontrol Servisi"
+    }
+    default "on"
+
+    start "modprobe excalibur" donotify=true
+    stop "rmmod excalibur" donotify=true
+    status "test -d /sys/bus/wmi/drivers/excalibur-wmi || grep -q '^excalibur ' /proc/modules"
+}

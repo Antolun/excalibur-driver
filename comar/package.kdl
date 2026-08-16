@@ -1,0 +1,9 @@
+package {
+    description "Casper Excalibur Kernel Driver and Control Utility"
+
+    post-install "dkms add -m excalibur-wmi -v 2.0.0 2>/dev/null || true; dkms build -m excalibur-wmi -v 2.0.0 2>/dev/null || true; dkms install -m excalibur-wmi -v 2.0.0 --force 2>/dev/null || true; depmod -a; udevadm control --reload-rules || true; udevadm trigger || true; modprobe excalibur 2>/dev/null || true"
+
+    pre-remove "rmmod excalibur 2>/dev/null || true; dkms remove -m excalibur-wmi -v 2.0.0 --all 2>/dev/null || true"
+
+    post-remove "depmod -a; udevadm control --reload-rules || true"
+}

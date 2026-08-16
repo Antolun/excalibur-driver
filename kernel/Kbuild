@@ -1,0 +1,2 @@
+obj-m += excalibur.o
+excalibur-objs := excalibur_main.o excalibur_core_rust.o

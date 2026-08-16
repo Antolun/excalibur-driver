@@ -1,0 +1,53 @@
+<LUPPO>
+    <Source>
+        <Name>excalibur-driver</Name>
+        <Homepage>https://github.com/Antolun/excalibur-driver</Homepage>
+        <Packager>
+            <Name>Solzic0</Name>
+            <Email>solzic0@yandex.com</Email>
+        </Packager>
+        <License>GPL-3.0-or-later</License>
+        <IsA>driver</IsA>
+        <Summary>Casper Excalibur WMI and RGB Keyboard Kernel Driver with DKMS and Rust Core</Summary>
+        <Description>Linux kernel driver and control utility for Casper Excalibur gaming laptops providing ACPI/WMI power profile management, per-zone RGB keyboard lighting control, fan speed monitoring via hwmon, and DKMS support with a high-performance Rust core.</Description>
+        <Archive sha1sum="da39a3ee5e6b4b0d3255bfef95601890afd80709" type="targz">https://github.com/Antolun/excalibur-driver/archive/v2.0.0.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>rust</Dependency>
+            <Dependency>cargo</Dependency>
+            <Dependency>clang</Dependency>
+            <Dependency>llvm</Dependency>
+            <Dependency>make</Dependency>
+            <Dependency>kernel-module-headers</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>excalibur-driver</Name>
+        <Summary>Casper Excalibur WMI and RGB Keyboard Kernel Driver with DKMS and Rust Core</Summary>
+        <Description>Linux kernel driver and control utility for Casper Excalibur gaming laptops providing ACPI/WMI power profile management, per-zone RGB keyboard lighting control, fan speed monitoring via hwmon, and DKMS support with a high-performance Rust core.</Description>
+        <RuntimeDependencies>
+            <Dependency>dkms</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin/excalibur-ctl</Path>
+            <Path fileType="data">/usr/src/excalibur-wmi-2.0.0</Path>
+            <Path fileType="config">/etc/udev/rules.d/99-excalibur.rules</Path>
+            <Path fileType="data">/lib/modules</Path>
+            <Path fileType="doc">/usr/share/doc/excalibur-driver</Path>
+        </Files>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+            <COMAR script="service.py">System.Service</COMAR>
+        </Provides>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2026-08-16</Date>
+            <Version>2.0.0</Version>
+            <Comment>Initial Luppo package release with Rust Core, HWMON, Power Profiles, DKMS, and COMAR support.</Comment>
+            <Name>Solzic0</Name>
+            <Email>solzic0@yandex.com</Email>
+        </Update>
+    </History>
+</LUPPO>

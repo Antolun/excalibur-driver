@@ -1,0 +1,13 @@
+# Udev rules for Casper Excalibur laptops (LEDs, Fan, Power Profiles)
+# Allows users in group 'wheel' (or all users) to control RGB keyboard & power plans
+
+# Excalibur RGB Keyboard Backlight zones
+SUBSYSTEM=="leds", KERNEL=="excalibur::kbd_backlight-*", ACTION=="add", RUN+="/bin/chmod -R 0666 /sys%p"
+SUBSYSTEM=="leds", KERNEL=="excalibur::kbd_backlight-*", ACTION=="change", RUN+="/bin/chmod -R 0666 /sys%p"
+
+# Excalibur HWMON Fan and Power Plan
+SUBSYSTEM=="hwmon", ATTRS{name}=="excalibur_wmi", ACTION=="add", RUN+="/bin/chmod 0666 /sys%p/pwm1"
+SUBSYSTEM=="hwmon", ATTRS{name}=="excalibur_wmi", ACTION=="change", RUN+="/bin/chmod 0666 /sys%p/pwm1"
+
+# ACPI Platform Profile
+KERNEL=="platform_profile", SUBSYSTEM=="firmware", ACTION=="add", RUN+="/bin/chmod 0666 /sys/firmware/acpi/platform_profile"

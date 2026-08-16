@@ -1,0 +1,20 @@
+[package]
+name = "excalibur_core"
+version = "2.0.0"
+edition = "2021"
+authors = ["Solzic0 <solzic0@yandex.com>"]
+description = "Core hardware protocol, LED, fan, and power management logic for Casper Excalibur laptops"
+license = "GPL-3.0-or-later"
+
+[lib]
+crate-type = ["staticlib", "rlib"]
+
+[dependencies]
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+debug = false
+overflow-checks = false
