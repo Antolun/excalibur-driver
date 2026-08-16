@@ -4,7 +4,7 @@
 MODULE_NAME   := excalibur
 VERSION       := 2.0.0
 KDIR          ?= /lib/modules/$(shell uname -r)/build
-PWD           := $(shell pwd)
+PWD           ?= $(CURDIR)
 KERNEL_DIR    := $(PWD)/kernel
 RUST_CORE_DIR := $(PWD)/rust_core
 CLI_DIR       := $(PWD)/cli
@@ -134,5 +134,5 @@ dkms-uninstall:
 
 luppo-build:
 	@echo "  [LUPPO] Building package with Luppo (lopec.xml + COMAR)..."
-	luppo build lopec.xml --no-sandbox
+	luppo build lopec.xml --no-sandbox --ignore-dependency
 

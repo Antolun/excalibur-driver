@@ -10,7 +10,6 @@
         <IsA>driver</IsA>
         <Summary>Casper Excalibur WMI and RGB Keyboard Kernel Driver with DKMS and Rust Core</Summary>
         <Description>Linux kernel driver and control utility for Casper Excalibur gaming laptops providing ACPI/WMI power profile management, per-zone RGB keyboard lighting control, fan speed monitoring via hwmon, and DKMS support with a high-performance Rust core.</Description>
-        <Archive sha1sum="da39a3ee5e6b4b0d3255bfef95601890afd80709" type="targz">https://github.com/Antolun/excalibur-driver/archive/v2.0.0.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>rust</Dependency>
             <Dependency>cargo</Dependency>
